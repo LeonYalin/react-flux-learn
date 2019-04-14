@@ -1,12 +1,19 @@
 {
+    "ecmaFeatures": {
+        "jsx": true
+    },
     "env": {
         "browser": true,
         "commonjs": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jquery": true
+    },
+    "globals": {
+        "jQuery": true,
+        "$": true
     },
     "extends": "airbnb-base",
-    "globals": {},
     "parserOptions": {
         "ecmaVersion": 2018
     },
