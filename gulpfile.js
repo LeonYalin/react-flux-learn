@@ -14,11 +14,12 @@ const config = {
   paths: {
     html: './src/*.html',
     js: './src/**/*.js',
+    jsx: './src/**/*.jsx',
     css: [
       'node_modules/bootstrap/dist/css/bootstrap.min.css',
       'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
     ],
-    mainJs: './src/main.js',
+    mainJs: './src/main.jsx',
     bundleJs: 'bundle.js',
     bundleCss: 'bundle.css',
     dist: './dist',
@@ -68,17 +69,17 @@ gulp.task('js', () => {
 });
 
 // lints the javascript files
-gulp.task('lint', () => {
-  const res = gulp.src(config.paths.js)
-    .pipe(eslint({ config: '.eslintrc.json' }))
-    .pipe(eslint.format());
-  return res;
-});
+// gulp.task('lint', () => {
+//   const res = gulp.src(config.paths.js)
+//     .pipe(eslint({ config: '.eslintrc.json' }))
+//     .pipe(eslint.format());
+//   return res;
+// });
 
-// watch html files changes
+// watch html and jsx files changes
 gulp.task('watch', () => {
   gulp.watch(config.paths.html, ['html']);
-  gulp.watch(config.paths.js, ['js']);
+  gulp.watch(config.paths.jsx, ['js']);
   // gulp.watch(config.paths.js, ['js', 'lint']);
 });
 
