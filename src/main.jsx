@@ -1,8 +1,5 @@
-jQuery = require('jquery');
-
-$ = jQuery;
-
+$ = jQuery = require('jquery');
 const React = require('react');
-const Home = require('./components/home.jsx');
+const App = require('./components/app.component.jsx');
 
-React.render(<Home />, document.getElementById('app'));
+React.render(<App />, document.getElementById('app'));

@@ -15,6 +15,7 @@ const config = {
     html: './src/*.html',
     js: './src/**/*.js',
     jsx: './src/**/*.jsx',
+    img: './src/img/*',
     css: [
       'node_modules/bootstrap/dist/css/bootstrap.min.css',
       'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
@@ -25,6 +26,7 @@ const config = {
     dist: './dist',
     distScripts: './dist/scripts',
     distCss: './dist/css',
+    distImg: './dist/img',
   },
 };
 
@@ -68,6 +70,12 @@ gulp.task('js', () => {
     .pipe(connect.reload());
 });
 
+gulp.task('img', () => {
+  gulp.src(config.paths.img)
+    .pipe(gulp.dest(config.paths.distImg))
+    .pipe(connect.reload());
+});
+
 // lints the javascript files
 // gulp.task('lint', () => {
 //   const res = gulp.src(config.paths.js)
@@ -84,5 +92,5 @@ gulp.task('watch', () => {
 });
 
 // default task, when running 'gulp'
-gulp.task('default', ['html', 'js', 'css', 'open', 'watch']);
-// gulp.task('default', ['html', 'js', 'css', 'lint', 'open', 'watch']);
+gulp.task('default', ['html', 'js', 'css', 'img', 'open', 'watch']);
+// gulp.task('default', ['html', 'js', 'css', 'img', 'lint', 'open', 'watch']);
