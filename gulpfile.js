@@ -64,7 +64,7 @@ gulp.task('js', () => {
   browserify(config.paths.mainJs)
     .transform(reactify)
     .bundle()
-    .on('error', console.error.bind(console))
+    .on('error', console.error.bind(console)) // eslint-disable-line no-console
     .pipe(source(config.paths.bundleJs))
     .pipe(gulp.dest(config.paths.distScripts))
     .pipe(connect.reload());

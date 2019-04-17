@@ -1,6 +1,6 @@
 const React = require('react');
 const Home = require('./home.component.jsx');
-const Persons = require('./persons.component.jsx');
+const Persons = require('./persons/persons.component.jsx');
 
 class App extends React.Component {
   render() {
