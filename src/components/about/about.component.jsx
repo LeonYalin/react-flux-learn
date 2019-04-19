@@ -8,4 +8,18 @@ class About extends React.Component {
   }
 }
 
+About.willTransitionTo = ((transition, params, query, next) => {
+  if (!window.confirm('Are you sure want to read this?')) {
+    transition.abort();
+  } else {
+    next();
+  }
+});
+
+About.willTransitionFrom = ((transition, component) => {
+  if (!window.confirm('Are you sure want to exit?')) {
+    transition.abort();
+  }
+});
+
 module.exports = About;
