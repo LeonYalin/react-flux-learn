@@ -1,5 +1,8 @@
 $ = jQuery = require('jquery');
 const React = require('react');
-const App = require('./components/app.component.jsx');
+const Router = require('react-router');
+const routes = require('./routes');
 
-React.render(<App />, document.getElementById('app'));
+Router.run(routes, (Handler) => {
+  React.render(<Handler/>, document.getElementById('app'));
+});

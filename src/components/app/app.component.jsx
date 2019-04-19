@@ -1,13 +1,13 @@
 const React = require('react');
-const Home = require('./home.component.jsx');
-const Persons = require('./persons/persons.component.jsx');
+const { RouteHandler } = require('react-router');
+const Header = require('../header/header.component.jsx');
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Home />
-        <Persons />
+        <Header />
+        <RouteHandler />
       </div>
     );
   }
