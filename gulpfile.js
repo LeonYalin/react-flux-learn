@@ -19,6 +19,7 @@ const config = {
     css: [
       'node_modules/bootstrap/dist/css/bootstrap.min.css',
       'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
+      'node_modules/toastr/toastr.css',
     ],
     mainJs: './src/main.jsx',
     bundleJs: 'bundle.js',

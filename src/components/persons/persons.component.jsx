@@ -1,4 +1,5 @@
 const React = require('react');
+const { Link } = require('react-router');
 const PersonsList = require('./persons-list.component.jsx');
 const personsMockApi = require('../../mocks/persons.mock.api');
 
@@ -33,6 +34,7 @@ class Persons extends React.Component {
     return (
       <div>
         <h3>Persons</h3>
+        <Link to="add" className="btn btn-default">Add person</Link>
         <PersonsList persons={this.state.persons} />
       </div>
     );

@@ -1,11 +1,13 @@
 const React = require('react');
 const { RouteHandler } = require('react-router');
-const Header = require('../header/header.component.jsx');
+const Header = require('../common/header.component.jsx');
+
+const appStyle = { margin: '20px' };
 
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div style={appStyle}>
         <Header />
         <RouteHandler />
       </div>
