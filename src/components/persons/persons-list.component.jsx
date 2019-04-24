@@ -1,4 +1,5 @@
 const React = require('react');
+const { Link } = require('react-router');
 
 class PersonsList extends React.Component {
   render() {
@@ -12,9 +13,9 @@ class PersonsList extends React.Component {
   createPersonRow(person) {
     return (
       <div key={person.id}>
-        <a href={`#persons/${person.id}`}>
-          <span>{`${person.firstName} ${person.lastName}`}</span>&nbsp;
-        </a>
+        <Link to="manage" params={{ id: person.id }}>
+          {`${person.firstName} ${person.lastName}`}
+        </Link>
       </div>
     );
   }

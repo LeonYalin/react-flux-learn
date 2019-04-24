@@ -10,12 +10,15 @@ class Input extends React.Component {
     return (
       <div className={wrapperClass}>
         <label htmlFor={this.props.name}>{this.props.label}</label>
-        <input id={this.props.name}
-          className="form-control"
-          placeholder={this.props.label}
-          ref={this.props.name}
-          value={this.props.value}
-          onChange={this.props.onChange} />
+        <div className="field">
+          <input id={this.props.name}
+            className="form-control"
+            placeholder={this.props.label}
+            ref={this.props.name}
+            value={this.props.value}
+            onChange={this.props.onChange} />
+            <div className="input">{this.props.error}</div>
+        </div>
       </div>
     );
   }

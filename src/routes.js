@@ -12,6 +12,7 @@ const routes = (
     <DefaultRoute handler={Home} />
     <Route name="persons" handler={Persons} />
     <Route name="add" path="persons/add" handler={AddPerson} />
+    <Route name="manage" path="persons/add/:id" handler={AddPerson} />
     <Route name="about" handler={About} />
     <NotFoundRoute handler={NotFound404} />
     <Redirect from="about-us" to="about" />

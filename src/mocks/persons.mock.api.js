@@ -13,6 +13,10 @@ class PersonsApi {
     return this.persons.length;
   }
 
+  getById(id) {
+    return this.persons.find(i => i.id === id);
+  }
+
   add(person) {
     this.persons.push(person);
   }
