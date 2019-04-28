@@ -10,7 +10,7 @@ const personsStore = Object.assign({}, EventEmitter.prototype, {
     this.on(CHANGE, callback);
   },
   removeChangeListener(callback) {
-    this.removeChangeListener(CHANGE, callback);
+    this.removeListener(CHANGE, callback);
   },
   emitChange() {
     this.emit(CHANGE);
@@ -31,21 +31,21 @@ Dispatcher.register((action) => {
       break;
     }
     case CONSTS.SAVE_PERSON: {
-      _persons.push(action.data);
+      // _persons.push(action.data);
       personsStore.emitChange();
       break;
     }
     case CONSTS.UPDATE_PERSON: {
-      const personToUpdate = action.data;
-      const personIndex = _persons.findIndex(p => p.id === personToUpdate.id);
-      _persons.splice(personIndex, 1, personToUpdate);
+      // const personToUpdate = action.data;
+      // const personIndex = _persons.findIndex(p => p.id === personToUpdate.id);
+      // _persons.splice(personIndex, 1, personToUpdate);
       personsStore.emitChange();
       break;
     }
     case CONSTS.DELETE_PERSON: {
-      const personToDelete = action.data;
-      const personIndex = _persons.findIndex(p => p.id === personToDelete.id);
-      _persons.splice(personIndex, 1);
+      // const personToDelete = action.data;
+      // const personIndex = _persons.findIndex(p => p.id === personToDelete.id);
+      // _persons.splice(personIndex, 1);
       personsStore.emitChange();
       break;
     }
