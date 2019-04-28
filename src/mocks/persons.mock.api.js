@@ -14,7 +14,7 @@ class PersonsApi {
   }
 
   getById(id) {
-    return this.persons.find(i => i.id === id);
+    return this.persons.find(p => p.id === id);
   }
 
   add(person) {
@@ -24,8 +24,18 @@ class PersonsApi {
     return newPerson;
   }
 
+  update(person) {
+    const personToUpdate = this.persons.find(p => p.id === person.id);
+    if (!personToUpdate) {
+      return null;
+    }
+
+    Object.assign(personToUpdate, person);
+    return personToUpdate;
+  }
+
   contains(person) {
-    const index = this.persons.findIndex(i => i.id === person.id);
+    const index = this.persons.findIndex(p => p.id === person.id);
     if (index > -1) {
       return index;
     }

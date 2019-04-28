@@ -1,8 +1,7 @@
 const React = require('react');
 const { Link } = require('react-router');
 const PersonsList = require('./persons-list.component.jsx');
-const personsStore = require('../../stores/person-store');
-const personActions = require('../../actions/persons.actions');
+const personsStore = require('../../stores/persons.store');
 
 class Persons extends React.Component {
   constructor() {
@@ -11,6 +10,18 @@ class Persons extends React.Component {
     this.state = {
       persons: personsStore.getAllPersons(),
     };
+  }
+
+  componentWillMount() {
+    personsStore.addchangeListener(this.onChange.bind(this));
+  }
+
+  componentWillUnmount() {
+    personsStore.removeChangeListener(this.onChange.bind(this));
+  }
+
+  onChange() {
+    this.setState({ persons: personsStore.getAllPersons() });
   }
 
   render() {

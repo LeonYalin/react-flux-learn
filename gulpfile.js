@@ -20,6 +20,7 @@ const config = {
       'node_modules/bootstrap/dist/css/bootstrap.min.css',
       'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
       'node_modules/toastr/toastr.css',
+      'src/styles.css',
     ],
     mainJs: './src/main.jsx',
     bundleJs: 'bundle.js',
@@ -90,6 +91,7 @@ gulp.task('watch', () => {
   gulp.watch(config.paths.html, ['html']);
   gulp.watch(config.paths.js, ['js']);
   gulp.watch(config.paths.jsx, ['js']);
+  gulp.watch(config.paths.css, ['css']);
   // gulp.watch(config.paths.js, ['js', 'lint']);
 });
 

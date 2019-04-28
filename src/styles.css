@@ -1,0 +1,6 @@
+.person-row .person-row-delete-icon {
+  display: none;
+}
+.person-row:hover .person-row-delete-icon {
+  display: initial;
+}

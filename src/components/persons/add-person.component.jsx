@@ -1,9 +1,7 @@
 const _ = require('lodash');
 const React = require('react');
-const Router = require('react-router');
 const toastr = require('toastr');
 const AddPersonForm = require('./add-person-form.component.jsx');
-// const personsMockApi = require('../../mocks/persons.mock.api');
 const personsStore = require('../../stores/persons.store');
 const personActions = require('../../actions/persons.actions');
 
@@ -64,7 +62,11 @@ class AddPerson extends React.Component {
     e.preventDefault();
     if (!this.formIsValid()) return;
 
-    personActions.savePerson(this.state.person);
+    if (!this.state.person.id) {
+      personActions.savePerson(this.state.person);
+    } else {
+      personActions.updatePerson(this.state.person);
+    }
     toastr.success('Person saved');
     this.setState({ dirty: false });
     this.context.router.transitionTo('persons');
@@ -78,7 +80,7 @@ class AddPerson extends React.Component {
           person={this.state.person}
           onChange={this.onChange.bind(this)}
           onSave={this.onSave.bind(this)}
-          errors={this.state.errors}/>
+          errors={this.state.errors} />
       </div>
     );
   }
