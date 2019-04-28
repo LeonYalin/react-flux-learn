@@ -4,8 +4,8 @@ const Router = require('react-router');
 const toastr = require('toastr');
 const AddPersonForm = require('./add-person-form.component.jsx');
 // const personsMockApi = require('../../mocks/persons.mock.api');
-const personStore = require('../../stores/person-store');
-const personActions = require('../../actions/person-actions');
+const personsStore = require('../../stores/persons.store');
+const personActions = require('../../actions/persons.actions');
 
 class AddPerson extends React.Component {
   constructor() {
@@ -25,7 +25,7 @@ class AddPerson extends React.Component {
   componentWillMount() {
     const personId = parseInt(this.props.params.id, 10);
     if (personId) {
-      this.setState({ person: personStore.getPersonById(personId) });
+      this.setState({ person: personsStore.getPersonById(personId) });
     }
   }
 

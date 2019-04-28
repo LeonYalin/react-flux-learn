@@ -5,7 +5,7 @@ const CONSTS = require('../constants/persons-constants');
 const CHANGE = 'change';
 const _persons = [];
 
-const personStore = Object.assign({}, EventEmitter.prototype, {
+const personsStore = Object.assign({}, EventEmitter.prototype, {
   addchangeListener(callback) {
     this.on(CHANGE, callback);
   },
@@ -32,4 +32,4 @@ Dispatcher.register((action) => {
   }
 });
 
-module.exports = personStore;
+module.exports = personsStore;
