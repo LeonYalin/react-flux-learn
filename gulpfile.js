@@ -88,6 +88,7 @@ gulp.task('img', () => {
 // watch html and jsx files changes
 gulp.task('watch', () => {
   gulp.watch(config.paths.html, ['html']);
+  gulp.watch(config.paths.js, ['js']);
   gulp.watch(config.paths.jsx, ['js']);
   // gulp.watch(config.paths.js, ['js', 'lint']);
 });

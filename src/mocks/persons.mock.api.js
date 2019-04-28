@@ -18,7 +18,10 @@ class PersonsApi {
   }
 
   add(person) {
-    this.persons.push(person);
+    const newPerson = { ...person };
+    newPerson.id = new Date().getTime();
+    this.persons.push(newPerson);
+    return newPerson;
   }
 
   contains(person) {

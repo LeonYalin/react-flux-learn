@@ -1,33 +1,16 @@
 const React = require('react');
 const { Link } = require('react-router');
 const PersonsList = require('./persons-list.component.jsx');
-const personsMockApi = require('../../mocks/persons.mock.api');
+const personStore = require('../../stores/person-store');
+const personActions = require('../../actions/person-actions');
 
 class Persons extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      persons: [],
+      persons: personStore.getAllPersons(),
     };
-  }
-
-  /**
-   * Not working with ES6 classes. Instead, set the state in constructor
-   */
-  // getInitialState() {
-  //   return {
-  //     persons: [],
-  //   };
-  // }
-
-  componentDidMount() {
-    /**
-     *  Not working with ES6 classes
-     */
-    // if (this.isMounted()) { ..setState() }
-
-    this.setState({ persons: personsMockApi.getAll() });
   }
 
   render() {
