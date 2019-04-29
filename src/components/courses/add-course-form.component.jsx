@@ -3,6 +3,10 @@ const Input = require('../common/input.component.jsx');
 const Dropdown = require('../common/dropdown.component.jsx');
 
 class AddCourseForm extends React.Component {
+  optionValueFormatterFunc(person) {
+    return `${person.firstName} ${person.lastName}`;
+  }
+
   render() {
     return (
       <form>
@@ -16,7 +20,7 @@ class AddCourseForm extends React.Component {
           label="Author"
           value={this.props.course.author}
           options={this.props.persons}
-          optionValueProp="id"
+          optionValueFormatter={this.optionValueFormatterFunc}
           onChange={this.props.onChange}
           error={this.props.errors.author} />
 

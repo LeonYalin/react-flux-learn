@@ -26,12 +26,13 @@ class Dropdown extends React.Component {
           onChange={this.props.onChange}>
           {this.props.options.map(this.createOptionsRow.bind(this))}
         </select>
+        <div className="input">{this.props.error}</div>
       </div>
     );
   }
 
   createOptionsRow(option) {
-    const value = option[this.props.optionValueProp];
+    const value = this.props.optionValueFormatter(option);
     const isSelected = value === this.props.value;
 
     const opts = {};
