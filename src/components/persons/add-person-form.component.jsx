@@ -28,6 +28,6 @@ AddPersonForm.propTypes = {
   onChange: React.PropTypes.func.isRequired,
   onSave: React.PropTypes.func.isRequired,
   errors: React.PropTypes.object,
-}
+};
 
 module.exports = AddPersonForm;

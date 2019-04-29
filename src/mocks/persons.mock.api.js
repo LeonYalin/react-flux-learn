@@ -44,7 +44,7 @@ class PersonsApi {
 
   remove(person) {
     const index = this.contains(person);
-    if (index) {
+    if (index > -1) {
       this.persons.splice(index, 1);
     }
   }

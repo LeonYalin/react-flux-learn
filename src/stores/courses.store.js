@@ -1,11 +1,11 @@
 const { EventEmitter } = require('events');
 const Dispatcher = require('../dispatcher/dispatcher');
-const CONSTS = require('../constants/persons.constants');
+const CONSTS = require('../constants/courses.constants');
 
 const CHANGE = 'change';
-let _persons = [];
+let _courses = [];
 
-const personsStore = Object.assign({}, EventEmitter.prototype, {
+const coursesStore = Object.assign({}, EventEmitter.prototype, {
   addchangeListener(callback) {
     this.on(CHANGE, callback);
   },
@@ -15,42 +15,42 @@ const personsStore = Object.assign({}, EventEmitter.prototype, {
   emitChange() {
     this.emit(CHANGE);
   },
-  getAllPersons() {
-    return _persons;
+  getAllCourses() {
+    return _courses;
   },
-  getPersonById(id) {
-    return _persons.find(i => i.id === id);
+  getCourseById(id) {
+    return _courses.find(i => i.id === id);
   },
 });
 
 Dispatcher.register((action) => {
   switch (action.type) {
     case CONSTS.INITIALIZE: {
-      _persons = action.data.persons;
-      personsStore.emitChange();
+      _courses = action.data.courses;
+      coursesStore.emitChange();
       break;
     }
-    case CONSTS.SAVE_PERSON: {
+    case CONSTS.SAVE_COURSE: {
       // _persons.push(action.data);
-      personsStore.emitChange();
+      coursesStore.emitChange();
       break;
     }
-    case CONSTS.UPDATE_PERSON: {
+    case CONSTS.UPDATE_COURSE: {
       // const personToUpdate = action.data;
       // const personIndex = _persons.findIndex(p => p.id === personToUpdate.id);
       // _persons.splice(personIndex, 1, personToUpdate);
-      personsStore.emitChange();
+      coursesStore.emitChange();
       break;
     }
-    case CONSTS.DELETE_PERSON: {
+    case CONSTS.DELETE_COURSE: {
       // const personToDelete = action.data;
       // const personIndex = _persons.findIndex(p => p.id === personToDelete.id);
       // _persons.splice(personIndex, 1);
-      personsStore.emitChange();
+      coursesStore.emitChange();
       break;
     }
     default: break;
   }
 });
 
-module.exports = personsStore;
+module.exports = coursesStore;

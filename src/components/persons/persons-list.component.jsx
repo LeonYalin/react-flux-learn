@@ -24,7 +24,7 @@ class PersonsList extends React.Component {
     return (
       <div>
         <div key={person.id} className="person-row">
-          <Link to="manage" params={{ id: person.id }}>
+          <Link to="managePerson" params={{ id: person.id }}>
             {`${person.firstName} ${person.lastName}`}
           </Link>
           <i className="person-row-delete-icon" style={deleteIconStyle} onClick={this.onDeleteClick.bind(this, person)}>x</i>
@@ -32,7 +32,6 @@ class PersonsList extends React.Component {
       </div>
     );
   }
-
 }
 
 PersonsList.propTypes = {

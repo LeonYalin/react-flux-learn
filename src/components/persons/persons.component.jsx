@@ -28,7 +28,7 @@ class Persons extends React.Component {
     return (
       <div>
         <h3>Persons</h3>
-        <Link to="add" className="btn btn-default">Add person</Link>
+        <Link to="addPerson" className="btn btn-default">Add person</Link>
         <PersonsList persons={this.state.persons} />
       </div>
     );
